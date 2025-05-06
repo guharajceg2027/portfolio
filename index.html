@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Web Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpg" href="./imgs/favicon.jpg">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #0066ff;
+            --secondary-color: #ffcc00;
+            --dark-color: #333333;
+            --light-color: #f5f5f5;
+            --text-color: #444444;
+            --white-color: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        h1 {
+            font-size: 3rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        h2 small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .button.black {
+            background-color: var(--dark-color);
+        }
+        
+        .button.white {
+            background-color: var(--white-color);
+            color: var(--dark-color);
+        }
+        
+        .button.small {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white-color);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo-holder {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            color: var(--dark-color);
+            font-size: 1.2rem;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--light-color);
+        }
+        
+        .mobile-toggle {
+            display: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .hero-blue {
+            padding: 40px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .hero-blue h1 {
+            color: var(--white-color);
+            margin-bottom: 20px;
+        }
+        
+        .hero-blue h1 small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+        
+        .hero-blue p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .hero-blue p span {
+            font-weight: 600;
+        }
+        
+        .call-to-action {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .hero-yellow {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Logos Section */
+        .logos {
+            padding: 40px 0;
+        }
+        
+        .marquee {
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .track {
+            display: flex;
+            animation: marquee 30s linear infinite;
+            gap: 40px;
+        }
+        
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: var(--light-color);
+        }
+        
+        .holder-blue {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 40px;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .holder-blue h3 {
+            color: var(--white-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .left-column ul {
+            margin-bottom: 30px;
+        }
+        
+        .left-column ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .left-column ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        /* Education Section */
+        .education-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .education-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-details {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .education-details p {
+            margin-bottom: 5px;
+        }
+        
+        /* Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .certification-card {
+            background-color: var(--white-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid #eaeaea;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certification-header {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .certification-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--white-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certification-logo img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .certification-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .certification-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .certification-issuer {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .certification-date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .certification-credential {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            word-break: break-all;
+        }
+        
+        .certification-skills {
+            margin-top: 15px;
+        }
+        
+        .certification-skills h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background-color: #f0f0f0;
+            color: var(--dark-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .certification-footer {
+            padding: 15px 25px;
+            border-top: 1px solid #eaeaea;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        /* Interests Section */
+        .interests-container {
+            background-color: var(--white-color);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .interest-item {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .interest-item:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .interest-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--white-color);
+        }
+        
+        .contact-methods {
+            margin-top: 30px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+			justify-content: center;
+            align-items: center;
+        }
+        
+        .contact-details h4 {
+            color: var(--white-color);
+            margin-bottom: 5px;
+        }
+        
+        .contact-details a {
+            color: var(--secondary-color);
+        }
+        
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--white-color);
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white-color);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links ul {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-links ul li a {
+            color: var(--white-color);
+            transition: var(--transition);
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            
+            .holder-blue {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white-color);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer-links ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+    <script src="./scripts.js"></script>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo-holder">
+            <div class="logo">L</div>
+            <div class="logo-text">Portfolio Website</div>
+        </a>
+        <nav>
+            <ul id="menu">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+                <li>
+                    <a href="#education">Education</a>
+                </li>
+                <li>
+                    <a href="#certifications">Certifications</a>
+                </li>
+                <li>
+                    <a href="#interests">Interests</a>
+                </li>
+                <li>
+                    <a href="mailto:hello@adriantwarog.com" class="button">Contact Me</a>
+                </li>
+            </ul>
+            <a href="#" class="mobile-toggle" onClick="toggleMobileMenu();">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
+                </svg>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero container">
+            <div class="hero-blue">
+                <div>
+                    <h1><small>Hi I'm</small>
+                        Guharaj T G M
+                    </h1>
+                    <p>
+                        "I'm a second-year engineering student pursuing a BTech in IT at Anna University, CEG, Chennai. <span>I'm passionate about web development and enjoy exploring technologies like HTML, CSS, JavaScript, and AI.</span> These days, I integrate tools like ChatGPT into my projects to enhance my learning and create innovative solutions."
+                    </p>
+                    <div class="call-to-action">
+                        <a href="./Sample_Resume_Template.pdf" class="button black">
+                            View Resume
+                        </a>
+                        <a href="mailto:hello@adriantwarog.com" class="button white">
+                            Contact Me
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/your-github-username" target="_blank">
+                            <img src="./imgs/github.png" alt="GitHub" width="48" />
+                        </a>
+                        <a href="https://www.linkedin.com/in/guharajmuralitharan" target="_blank">
+                            <img src="./imgs/linkedin.png" alt="LinkedIn" width="48" />
+                        </a>
+                    </div>
+                                    
+                </div>
+            </div>
+            <div class="hero-yellow">
+                <img src="./imgs/guha.jpeg" alt="Guharaj T G M" width="100%" />
+            </div>
+        </section>
+        <section class="logos container">
+            <div class="marquee">
+                <div class="track">
+                    <img src="./imgs/html.png" alt="HTML" width="128" />
+                    <img src="./imgs/css.png" alt="CSS" width="128" />
+                    <img src="./imgs/javascript.png" alt="JS" width="128" />
+                    <img src="./imgs/sass.png" width="128" alt="Sass" />
+                    <img src="./imgs/react.png" width="128" alt="React" />
+                    <img src="./imgs/nextjs.png" width="128" alt="Next JS" />
+                    <img src="./imgs/azure.png" width="128" alt="Azure" />
+                    <img src="./imgs/vscode.png" width="128" alt="VS Code" />
+                    <img src="./imgs/python.png" width="128" alt="Python" />
+                    <img src="./imgs/html.png" alt="HTML" width="128" />
+                    <img src="./imgs/css.png" alt="CSS" width="128" />
+                    <img src="./imgs/javascript.png" alt="JS" width="128" />
+                    <img src="./imgs/sass.png" width="128" alt="Sass" />
+                    <img src="./imgs/react.png" width="128" alt="React" />
+                    <img src="./imgs/nextjs.png" width="128" alt="Next JS" />
+                    <img src="./imgs/azure.png" width="128" alt="Azure" />
+                    <img src="./imgs/vscode.png" width="128" alt="VS Code" />
+                    <img src="./imgs/python.png" width="128" alt="Python" />
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="skills container">
+            <h2>
+                <small>About Me</small>
+                Skills
+            </h2>
+            <div class="holder-blue">
+                <div class="left-column">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Angular</li>
+                        <li>Vue</li>
+                    </ul>
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>Node.js</li>
+                        <li>Express</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>PHP</li>
+                        <li>Ruby</li>
+                    </ul>
+                </div>
+                <div class="right-column">
+                    <h3>A bit about me</h3>
+                    <p>Hi, I'm a passionate tech enthusiast and learner with a deep interest in web development, AI technologies, and system design. I'm constantly diving into various web technologies like HTML, CSS, JavaScript, React, Angular, and Vue, and I enjoy building projects that help me explore new concepts and refine my skills.</p>
+                    <p>Beyond web development, I have a keen interest in Data Structures and Database Management Systems (DBMS). I'm fascinated by how data can be organized efficiently to solve complex problems. Whether it's implementing algorithms with arrays, linked lists, or trees, or optimizing data storage and retrieval with indexing and normalization in databases, I enjoy learning and applying these core concepts.</p>
+                    <p>In addition to my technical journey, I'm also an aspiring IAS (Indian Administrative Service) candidate, dedicated to learning and growing in both the tech world and public service. I aim to combine my technical skills with a strong foundation in leadership and problem-solving to make a positive impact in both fields.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="container">
+            <h2>
+                <small>My</small>
+                Education
+            </h2>
+            <div class="education-container holder-blue">
+                <div class="education-item">
+                    <h3>B.Tech in Information Technology</h3>
+                    <div class="education-details">
+                        <p><strong>College of Engineering, Guindy - Anna University</strong></p>
+                        <p>2023 - 2027 (Expected)</p>
+                        <p>CGPA: 9.55/10</p>
+                    </div>
+                    <p>Coursework includes Data Structures, Algorithms, Database Management Systems, Web Development, and Machine Learning.</p>
+                </div>
+                <div class="education-item">
+                    <h3>Higher Secondary Education</h3>
+                    <div class="education-details">
+                        <p><strong>Higher Secondary School</strong></p>
+                        <p>2021 - 2023</p>
+                        <p>Percentage: 98.5%</p>
+                    </div>
+                    <p>Focused on Mathematics, Physics, and Computer Science with distinction in all subjects.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="container">
+            <h2>
+                <small>My</small>
+                Certifications
+            </h2>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="certification-logo">
+                            <img src="./imgs/nptel_python_for_data_science.png" alt="NPTEL Logo" />
+                        </div>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Python for Data Science</h3>
+                        <div class="certification-issuer">
+                            <img src="./imgs/nptel_logo.png" alt="NPTEL" width="20" height="20" />
+                            Indian Institute of Technology, Madras
+                        </div>
+                        <div class="certification-date">Issued Apr 2025</div>
+                        <div class="certification-skills">
+                            <h4>Skills:</h4>
+                            <div class="skills-tags">
+                                <span class="skill-tag">Data Analysis</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Spyder IDE</span>
+                                <span class="skill-tag">Statistical Data Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-footer">
+                        <a href="#" class="button small">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="certification-logo">
+                            <img src="./imgs/statistics_onramp.jpg" alt="MathWorks Logo" />
+                        </div>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Statistics Onramp</h3>
+                        <div class="certification-issuer">
+                            <img src="./imgs/mathworks_logo.png" alt="MathWorks" width="20" height="20" />
+                            MathWorks
+                        </div>
+                        <div class="certification-date">Issued Feb 2025</div>
+                        <div class="certification-skills">
+                            <h4>Skills:</h4>
+                            <div class="skills-tags">
+                                <span class="skill-tag">Statistics</span>
+                                <span class="skill-tag">Data Analysis</span>
+                                <span class="skill-tag">MATLAB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-footer">
+                        <a href="#" class="button small">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="certification-logo">
+                            <img src="./imgs/Python_basic_hacker_rank.png" alt="HackerRank Logo" />
+                        </div>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Python (Basic)</h3>
+						<div class="certification-issuer">
+                            <img src="./imgs/hackerrank_logo.png" alt="HackerRank" width="20" height="20" />
+                            HackerRank
+                        </div>
+                        <div class="certification-date">Issued Jan 2025</div>
+                        <div class="certification-credential">Credential ID: 75af851e0804</div>
+                        <div class="certification-skills">
+                            <h4>Skills:</h4>
+                            <div class="skills-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Problem Solving</span>
+                                <span class="skill-tag">Algorithms</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-footer">
+                        <a href="#" class="button small">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="certification-logo">
+                            <img src="./imgs/SQL_basic_hacker_rank.png" alt="HackerRank Logo" />
+                        </div>
+                    </div>
+                    <div class="certification-content">
+                        <h3>SQL (Basic)</h3>
+                        <div class="certification-issuer">
+                            <img src="./imgs/hackerrank_logo.png" alt="HackerRank" width="20" height="20" />
+                            HackerRank
+                        </div>
+                        <div class="certification-date">Issued Jan 2025</div>
+                        <div class="certification-credential">Credential ID: 69f44d2e901e</div>
+                        <div class="certification-skills">
+                            <h4>Skills:</h4>
+                            <div class="skills-tags">
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Database</span>
+                                <span class="skill-tag">Query Writing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-footer">
+                        <a href="#" class="button small">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="certification-logo">
+                            <img src="./imgs/DSA_learnTube_ai.jpg" alt="LearnTube.ai Logo" />
+                        </div>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Data Structures and Algorithms</h3>
+                        <div class="certification-issuer">
+                            <img src="./imgs/learntube_logo.png" alt="LearnTube.ai" width="20" height="20" />
+                            LearnTube.ai
+                        </div>
+                        <div class="certification-date">Issued Dec 2024</div>
+                        <div class="certification-credential">Credential ID: INT-M-2-2227-982820</div>
+                        <div class="certification-skills">
+                            <h4>Skills:</h4>
+                            <div class="skills-tags">
+                                <span class="skill-tag">Data Structures</span>
+                                <span class="skill-tag">Algorithms</span>
+                                <span class="skill-tag">Problem Solving</span>
+                                <span class="skill-tag">Complexity Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-footer">
+                        <a href="#" class="button small">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="certification-logo">
+                            <img src="./imgs/matlab_onramp.jpg" alt="MathWorks Logo" />
+                        </div>
+                    </div>
+                    <div class="certification-content">
+                        <h3>MATLAB Onramp</h3>
+                        <div class="certification-issuer">
+                            <img src="./imgs/mathworks_logo.png" alt="MathWorks" width="20" height="20" />
+                            MathWorks
+                        </div>
+                        <div class="certification-date">Issued Dec 2024</div>
+                        <div class="certification-skills">
+                            <h4>Skills:</h4>
+                            <div class="skills-tags">
+                                <span class="skill-tag">MATLAB</span>
+                                <span class="skill-tag">Data Analysis</span>
+                                <span class="skill-tag">Scientific Computing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-footer">
+                        <a href="#" class="button small">View Certificate</a>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-header">
+                        <div class="certification-logo">
+                            <img src="./imgs/C++_learnTube_ai.jpg" alt="LearnTube.ai Logo" />
+                        </div>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Programming in C++</h3>
+                        <div class="certification-issuer">
+                            <img src="./imgs/learntube_logo.png" alt="LearnTube.ai" width="20" height="20" />
+                            LearnTube.ai
+                        </div>
+                        <div class="certification-date">Issued Sep 2023</div>
+                        <div class="certification-credential">Credential ID: CPR-P-2-167095-0</div>
+                        <div class="certification-skills">
+                            <h4>Skills:</h4>
+                            <div class="skills-tags">
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">Object-Oriented Programming</span>
+                                <span class="skill-tag">Data Structures</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certification-footer">
+                        <a href="#" class="button small">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="interests" class="container">
+            <h2>
+                <small>My</small>
+                Interests & Hobbies
+            </h2>
+            <div class="interests-container holder-blue">
+				<div class="interests-grid">
+					<div class="interest-item">
+						<div class="interest-icon">📚</div>
+						<h3>Reading</h3>
+						<p style="color: black;">I enjoy reading books on technology, leadership, and personal development. Some of my favorites include "Clean Code" by Robert C. Martin and "Atomic Habits" by James Clear.</p>
+					</div>
+					<div class="interest-item">
+						<div class="interest-icon">🎮</div>
+						<h3>Gaming</h3>
+						<p style="color: black;">I enjoy strategic games that challenge my problem-solving abilities. I'm particularly interested in games that incorporate AI and machine learning.</p>
+					</div>
+					<div class="interest-item">
+						<div class="interest-icon">🎸</div>
+						<h3>Music</h3>
+						<p style="color: black;">I play the guitar in my free time and enjoy learning new songs. Music provides a creative outlet that complements my technical work.</p>
+					</div>
+				</div>
+			</div>
+			
+        </section>
+
+        <section id="contact" class="container">
+            <h2>
+                <small>Get in</small>
+                Touch
+            </h2>
+            <div class="contact-container holder-blue">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always open to discussing new projects, opportunities, or just chatting about technology and innovation.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p><a href="guharajceg2027@gmail.com">hello@adriantwarog.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">🔗</div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <p><a href="https://www.linkedin.com/in/guharajmuralitharan" target="_blank">linkedin.com/in/guharajmuralitharan</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">💻</div>
+                            <div class="contact-details">
+                                <h4>GitHub</h4>
+                                <p><a href="https://github.com/guharajceg2027" target="_blank">github.com/your-github-username</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="button black">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">L</div>
+                    <div class="logo-text">Guharaj T G M</div>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
+                        <li><a href="#interests">Interests</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/your-github-username" target="_blank">
+                        <img src="./imgs/github.png" alt="GitHub" width="32" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/guharajmuralitharan" target="_blank">
+                        <img src="./imgs/linkedin.png" alt="LinkedIn" width="32" />
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Guharaj T G M. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
